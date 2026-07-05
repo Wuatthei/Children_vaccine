@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  # 1. Ứng dụng Backend Spring Boot (chạy ở cổng 8080 nội bộ)
+  children-vaccine-backend:
+    build: .
+    container_name: children-vaccine-api
+    restart: always
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://<RDS_ENDPOINT>:3306/vaccinemanagement?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=<RDS_USERNAME>
+      - SPRING_DATASOURCE_PASSWORD=<RDS_PASSWORD>
+    networks:
+      - children-vaccine-net
+
+  # 2. Nginx đóng vai trò Reverse Proxy đón cổng 80 ngoài Internet
+  nginx-proxy:
+    image: nginx:alpine
+    container_name: children-vaccine-nginx
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - children-vaccine-backend
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - children-vaccine-net
+
+networks:
+  children-vaccine-net:
+    driver: bridge # Mạng nội bộ bảo vệ các container
