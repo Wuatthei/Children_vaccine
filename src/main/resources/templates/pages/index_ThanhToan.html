@@ -1,0 +1,224 @@
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" th:href="@{/assets/img/logo-favicon.png}" />
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Icon Font Stylesheet -->
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css"
+  />
+  <style>
+    body {
+      background: linear-gradient(to right, #f0f4f8, #e8f0ff);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+  
+    .header_ThanhToan {
+      text-align: center;
+      margin-top: 40px;
+    }
+  
+    .header_ThanhToan h1 {
+      font-weight: bold;
+      font-size: 2.8rem;
+      color: #0d6efd;
+    }
+  
+    .header_ThanhToan i {
+      font-size: 2.5rem;
+      color: #0d6efd;
+      margin-bottom: 10px;
+    }
+  
+    .payment-box {
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      margin-top: 30px;
+      text-align: center;
+    }
+  
+    .info-title {
+      color: #0d6efd;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+  
+    .payment-options {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .payment-options .btn {
+      border-radius: 30px;
+      padding: 10px 25px;
+      font-weight: 500;
+    }
+  
+    .payment-box p {
+      margin: 8px 0;
+      font-size: 1.05rem;
+    }
+  
+    .qr-image {
+      width: 220px;
+      height: 220px;
+      object-fit: contain;
+      margin-top: 20px;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      background-color: #fff;
+      padding: 8px;
+    }
+  
+    .btn-confirm {
+      margin-top: 25px;
+      padding: 10px 30px;
+      border-radius: 30px;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+    .btn-confirm:hover {
+      background-color: #0d6efd;
+      color: #fff;
+      cursor: pointer;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+    .btn-choose-payment {
+      margin-top: 20px;
+      padding: 10px 30px;
+      border-radius: 30px;
+      font-weight: 500;
+      font-size: 1.1rem;
+      margin-left: 20px
+    }
+    .btn-choose-payment:hover {
+      background-color: #0d6efd;
+      color: #fff;
+      cursor: pointer;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+  </style>
+  
+</html>
+
+<body>
+  <div class="container">
+    <div class="header_ThanhToan">
+      <i class="fas fa-file-invoice-dollar"></i>
+      <h1>Thanh Toán Dịch Vụ</h1>
+    </div>
+
+    <!-- Thông tin đặt lịch -->
+    <div id="infoDisplay" class="payment-box"></div>
+
+    <!-- Lựa chọn thanh toán -->
+    <div class="payment-options text-center">
+      <div class="btn-group d-flex justify-content-center gap-3 flex-wrap">
+        <button
+          type="button"
+          class="btn btn-outline-primary btn-choose-payment"
+          onclick="showPayment('cash')"
+        >
+          <i class="fas fa-money-bill-wave me-2" style="margin-right: 8px;"></i>Tiền mặt
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-success btn-choose-payment"
+          onclick="showPayment('qr')"
+        >
+          <i class="fas fa-qrcode me-2" style="margin-right: 8px;"></i>Quét mã QR
+        </button>
+      </div>
+    </div>
+    <div id="paymentContent" class="mt-4"></div>
+  </div>
+
+  <script>
+    function showPayment(type) {
+      const content = document.getElementById("paymentContent");
+      if (type === "cash") {
+        console.log("Cash payment selected");
+        content.innerHTML = `
+            <div class="payment-box text-center">
+              <h4 class="text-primary fw-bold mb-3"><i class="fas fa-hand-holding-usd me-2"></i>Thanh toán tiền mặt</h4>
+              <p>Vui lòng thanh toán tại quầy lễ tân sau khi hoàn tất đặt lịch.</p>
+              <p>Chúng tôi luôn sẵn sàng hỗ trợ bạn!</p>
+              <button class="btn btn-primary btn-confirm" onclick="confirmCashPayment()">Xác nhận</button>
+            </div>
+          `;
+      } else if (type === "qr") {
+        content.innerHTML = `
+            <div class="payment-box text-center">
+              <h4 class="text-success fw-bold mb-3"><i class="fas fa-qrcode me-2"></i>Quét mã QR</h4>
+              <p>Vui lòng dùng app ngân hàng hoặc ví điện tử để quét mã dưới đây.</p>
+              <img src="../assets/img/6dfbcd0ec8257b7b2234.jpg" alt="QR Code" class="qr-image" />
+              <p class="mt-3">Đảm bảo nhập đúng số tiền và nội dung chuyển khoản.</p>
+              <button class="btn btn-success btn-confirm" onclick="confirmQrPayment()">Tôi đã thanh toán</button>
+            </div>
+          `;
+      }
+    }
+
+    function confirmCashPayment() {
+      const apiBaseUrl = `http://${window.location.hostname}:8080`;
+      alert(
+        "Cảm ơn bạn đã xác nhận thanh toán bằng tiền mặt!\nChúng tôi sẽ tiến hành xử lý đơn hàng của bạn."
+      );
+      window.location.href = `${apiBaseUrl}/indexLogin#`;
+    }
+
+    function confirmQrPayment() {
+      const apiBaseUrl = `http://${window.location.hostname}:8080`;
+      alert(
+        "Thanh toán QR đã thành công!\nChúng tôi sẽ xác nhận giao dịch và gửi thông báo cho bạn."
+      );
+      window.location.href = `${apiBaseUrl}/indexLogin#`;
+    }
+
+    window.onload = function () {
+      const data = JSON.parse(localStorage.getItem("thongTinDatLich"));
+      if (data) {
+        document.getElementById("infoDisplay").innerHTML = `
+            <h4 class="info-title"><i class="fas fa-user-check me-2"></i>Thông tin đặt lịch</h4>
+            <p><strong>Họ tên người tiêm:</strong> ${data.hoTenNguoiTiem}</p>
+            <p><strong>Ngày sinh:</strong> ${data.ngaySinh}</p>
+            <p><strong>Giới tính:</strong> ${data.gioiTinh}</p>
+            <p><strong>Địa chỉ:</strong> ${data.diaChi}</p>
+            <p><strong>Người liên hệ:</strong> ${data.hoTenNguoiLienHe} (${data.moiQuanHe})</p>
+            <p><strong>Số điện thoại:</strong> ${data.soDienThoai}</p>
+            <p><strong>Loại vắc xin:</strong> ${data.vaccineType}</p>
+            <p><strong>Trung tâm tiêm:</strong> ${data.trungTam}</p>
+            <p><strong>Ngày tiêm:</strong> ${data.ngayTiem}</p>
+          `;
+      }
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng giá tiêm chủng</title>
+    
+    <style>
+        li {
+            list-style-type: none;
+        }
+        #menu {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4">
+    <div class="bg-white p-4 rounded shadow-md mb-6">
+        <div class="flex items-center mb-4 cursor-pointer" onclick="toggleMenu()">
+            <i id="menu-icon" class="fas fa-caret-down text-xl mr-2"></i>
+            <h1 class="text-2xl font-bold text-dark">Mục lục</h1>
+        </div>
+        <div id="menu">
+            <ul class="list-disc pl-6 text-dark">
+                <li class="mb-2" onclick="scrollToSection('content')">Bảng giá tiêm chủng TITACHI</li>
+                <li class="mb-2">
+                    <div class="flex items-center cursor-pointer" onclick="toggleSubmenu('submenu1')">
+                        <i id="icon-submenu1" class="fas fa-caret-down mr-2"></i>
+                        <span class="font-bold">Các dịch vụ tiêm chủng tại TITACHI</span>
+                    </div>
+                    <ul id="submenu1" class="list-disc pl-6 mt-2">
+                        <li class="mb-2" onclick="scrollToSection('service1')">Dịch vụ tiêm lẻ vắc xin</li>
+                        <li class="mb-2" onclick="scrollToSection('service2')">Tiêm chủng vắc xin trọn gói</li>
+                        <li class="mb-2" onclick="scrollToSection('service3')">Gói vắc xin cá thể hóa</li>
+                        <li class="mb-2" onclick="scrollToSection('service4')">Dịch vụ tiêm chủng lưu động theo yêu cầu</li>
+                    </ul>
+                </li>
+                <li class="mb-2">
+                    <div class="flex items-center cursor-pointer" onclick="toggleSubmenu('submenu2')">
+                        <i id="icon-submenu2" class="fas fa-caret-down mr-2"></i>
+                        <span class="font-bold">Các hình thức thanh toán khi tiêm vắc xin tại TITACHI</span>
+                    </div>
+                    <ul id="submenu2" class="list-disc pl-6 mt-2">
+                        <li class="mb-2" onclick="scrollToSection('paymentMethods')">Gói vắc xin: Tiêm trước trả sau không lãi suất</li>
+                        <li class="mb-2" onclick="scrollToSection('contactHotline')">Liên hệ hotline để được hướng dẫn thanh toán</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Nội dung chính -->
+    <div class="container mx-auto mb-6" id="content">
+        <div class="flex justify-between items-center mb-4">
+            <h1 class="text-2xl font-bold text-blue-800">Bảng giá tiêm chủng TITACHI</h1>
+            <button id="sortButton" onclick="sortTable()" class="bg-gray-200 text-gray-700 px-4 py-2 rounded">Giá thấp đến cao</button>
+        </div>
+        <div class="overflow-x-auto">
+            <table id="vaccineTable" class="min-w-full bg-white border border-gray-300 text-dark">
+                <thead>
+                    <tr>
+                        <th class="px-4 py-2 border border-gray-300">STT</th>
+                        <th class="px-4 py-2 border border-gray-300">Phòng bệnh</th>
+                        <th class="px-4 py-2 border border-gray-300">Tên vắc xin</th>
+                        <th class="px-4 py-2 border border-gray-300">Nước sản xuất</th>
+                        <th class="px-4 py-2 border border-gray-300">Giá bán lẻ/liều (VNĐ)</th>
+                        <th class="px-4 py-2 border border-gray-300">Giá ưu đãi/liều (VNĐ)</th>
+                        <th class="px-4 py-2 border border-gray-300">Tình trạng</th>
+                    </tr>
+                </thead>
+                <tbody id = "vaccineTableBody">
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-300 text-center">1</td>
+                        <td class="px-4 py-2 border border-gray-300">Uốn ván</td>
+                        <td class="px-4 py-2 border border-gray-300">Vắc xin uốn ván hấp phụ (TT)</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">Việt Nam</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">149.000</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center"></td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">Có</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-300 text-center">2</td>
+                        <td class="px-4 py-2 border border-gray-300">Lao</td>
+                        <td class="px-4 py-2 border border-gray-300">BCG (lọ 1ml)</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">Việt Nam</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">155.000</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center"></td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">Có</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-300 text-center">3</td>
+                        <td class="px-4 py-2 border border-gray-300">Tả</td>
+                        <td class="px-4 py-2 border border-gray-300">Morcvax</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">Việt Nam</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">165.000</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center"></td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">Có</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-300 text-center">4</td>
+                        <td class="px-4 py-2 border border-gray-300">Viêm não Nhật Bản</td>
+                        <td class="px-4 py-2 border border-gray-300">Jevax 1ml</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">Việt Nam</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">198.000</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center"></td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">Có *</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-300 text-center">5</td>
+                        <td class="px-4 py-2 border border-gray-300">Viêm gan B trẻ em</td>
+                        <td class="px-4 py-2 border border-gray-300">Gene Hbvax 0.5ml</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">Việt Nam</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">199.000</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center"></td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">Có</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-300 text-center">6</td>
+                        <td class="px-4 py-2 border border-gray-300">Bạch hầu – Uốn ván</td>
+                        <td class="px-4 py-2 border border-gray-300">Uốn ván, bạch hầu hấp phụ (Td) - Liều</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">Việt Nam</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">205.000</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center"></td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">Có</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-300 text-center">7</td>
+                        <td class="px-4 py-2 border border-gray-300">Viêm gan B người lớn</td>
+                        <td class="px-4 py-2 border border-gray-300">Gene Hbvax 1ml</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">Việt Nam</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">220.000</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center"></td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">Có</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-300 text-center">8</td>
+                        <td class="px-4 py-2 border border-gray-300">Bạch hầu – Uốn ván</td>
+                        <td class="px-4 py-2 border border-gray-300">Uốn ván, bạch hầu hấp phụ (Td) – Lọ 0.5ml</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">Việt Nam</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">240.000</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center"></td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">Có</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-300 text-center">9</td>
+                        <td class="px-4 py-2 border border-gray-300">Uốn ván</td>
+                        <td class="px-4 py-2 border border-gray-300">Huyết thanh uốn ván (SAT)</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">Việt Nam</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">245.000</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center"></td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">Có</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-300 text-center">10</td>
+                        <td class="px-4 py-2 border border-gray-300">Viêm gan A</td>
+                        <td class="px-4 py-2 border border-gray-300">Havax 0.5ml</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">Việt Nam</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">255.000</td>
+                        <td class="px-4 py-2 border border-gray-300 text-center"></td>
+                        <td class="px-4 py-2 border border-gray-300 text-center">Có</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <style>
+            #vaccineTableBody tr:nth-child(even) {
+                background-color: #f0f8ff;
+            }
+            #vaccineTableBody tr:nth-child(odd) {
+                background-color: #ffffff;
+            }
+            #vaccineTableBody tr:hover {
+                background-color: #d0e7ff;
+                transition: background-color 0.3s ease-in-out;
+            }
+        </style>
+
+        <div class="p-4 bg-white rounded shadow-md mb-6 text-dark">
+            <p class="font-bold">1. Bảng giá áp dụng trên toàn hệ thống tiêm chủng VCV từ ngày 09/03/2025</p>
+            <p><strong>2. Giá vắc xin tại TITACHI đã bao gồm:</strong> miễn phí khám với đội ngũ bác sĩ chuyên môn cao, miễn phí các dịch vụ chăm sóc Khách hàng cao cấp 
+                (trung tâm rộng lớn, phòng khám phòng tiêm hiện đại, máy điều hoà 2 chiều, nước uống sạch, khu vui chơi rộng rãi sinh động, 
+                nhiều tiện ích riêng biệt cho Khách hàng như phòng cho mẹ và bé, khu vệ sinh riêng cho trẻ em, 
+                khu vực sử dụng tã/ bỉm/ khăn giấy miễn phí, sạc điện thoại miễn phí, miễn phí khu hỗ trợ giữ xe…); 
+                phí danh cho các Khách hàng có lịch tiêm ngay tại trung tâm TITACHI (nếu có); phí cho tài liệu, 
+                ấn phẩm phục vụ Khách hàng (sổ tiêm, phiếu tiêm, tài liệu thông tin về các bệnh dịch, vắc xin, 
+                các chương trình giáo dục cộng đồng về vắc xin và tiêm chủng…); chi phí cuộc gọi, tin nhắn (SMS) chăm sóc Khách hàng 
+                trên đa nền tảng (tổng đài, mạng xã hội, tại trung tâm…); phí lưu trữ thông tin lịch sử tiêm chủng…</p>
+            <p><strong>3. TITACHI miễn phí đặt giữ vắc xin theo yêu cầu tất cả các loại vắc xin, </strong>tiêm bảng giá lẻ nếu 
+                Quý Khách hoàn tất lịch tiêm trong vòng 5 tuần. Quý Khách có lịch tiêm sau 5 tuần, 
+                phí đặt giữ vắc xin được tính 20% trên giá lẻ hoặc giá lẻ đã được ưu đãi.</p>
+            <p><strong>4. TITACHI miễn phí bảo quản vắc xin trong hệ thống kho lạnh GSP theo tiêu chuẩn quốc tế</strong>, 
+                hệ thống dây chuyền lạnh Cold Chain, đảm bảo vắc xin an toàn, chất lượng cao ở tất cả các trung tâm trên toàn quốc.</p>
+            <p style="font-weight: bold;">5. Phí đặt giữ vắc xin sau 5 tuần tại TITACHI bao gồm các chi phí:</p>
+            <ul class="list-disc list-inside mb-2">
+                <li>-Phí bảo quản, lưu trữ vắc xin theo tiêu chuẩn Quốc tế;</li>
+                <li>-Phí chênh trượt giá vắc xin: Khách hàng sẽ không phải thanh toán thêm bất cứ khoản chi phí phát sinh nào trong suốt quá trình đặt giữ. Số tiền chênh lệch nếu vắc xin tăng giá sau đó biến động thị trường Khách hàng cũng không phải chi trả;</li>
+                <li>-Phí các dịch vụ chăm sóc Khách hàng trên đa nền tảng: dịch vụ tư vấn tổng đài tin nhắn (SMS)/cuộc gọi nhắc lịch tiêm; dịch vụ cung cấp thông tin, chăm sóc Khách hàng qua mạng xã hội, trực tiếp tại trung tâm…;</li>
+                <li>-Phí lưu trữ thông tin lịch sử tiêm chủng trọn đời;</li>
+                <li>-Phí dịch vụ ưu tiên phục vụ tại các trung tâm toàn quốc: Trải nghiệm cơ sở hạ tầng rộng lớn, cơ sở vật chất hiện đại, phòng khám phòng tiêm chuyên biệt, đầy đủ các phòng và khu vực chức năng, trang bị đầy đủ thiết bị cao cấp…;</li>
+                <li>-Phí sử dụng tất cả các tiện ích cao cấp tại trung tâm: Khu vui chơi trẻ em rộng rãi sinh động, nước uống tiết kiệm, khu vực vệ sinh riêng cho trẻ em, khu vực sử dụng tã/ bỉm/ khăn giấy miễn phí và các loại khăn ướt khác, sạc điện thoại miễn phí, miễn phí khu vực giữ xe…;</li>
+                <li>-Phí danh cho các Khách hàng có lịch tiêm ngay tại trung tâm TITACHI (nếu có);</li>
+                <li>-Phí cho tài liệu, ấn phẩm phục vụ Khách hàng (sổ tiêm, phiếu tiêm, tài liệu thông tin về các bệnh dịch, vắc xin, các chương trình giáo dục cộng đồng về vắc xin và tiêm chủng…)</li>
+            </ul>
+
+            <div id="service1">
+                <h1 class="text-2xl font-bold text-blue-800 mb-4">Dịch vụ tiêm lẻ vắc xin</h1>
+                <p class="mb-4">TITACHI tự hào là Hệ thống tiêm chủng có đầy đủ các loại vắc xin cho trẻ em và người lớn, 
+                    kể cả các loại thường xuyên khan hiếm, với mức giá bình ổn trong mùa cao điểm dịch bệnh cho Khách hàng thoải mái tiêm lẻ. 
+                    Là đối tác chiến lược toàn diện của nhiều hãng vắc xin lớn trên thế giới 
+                    như <span class="font-bold">Glaxosmithkline - Bỉ (GSK)</span>, <span class="font-bold">Sanofi Pasteur (Pháp)</span>, 
+                    <span class="font-bold">Pfizer (Mỹ)</span>, <span class="font-bold">Merck Sharp and Dohme (Mỹ)</span>, 
+                    <span class="font-bold">Abbott (Hà Lan)</span>, <span class="font-bold">Takeda (Nhật Bản)</span>, 
+                    <span class="font-bold">Astrazeneca (Anh)</span>... cùng nhiều hãng vắc xin, dược phẩm nổi tiếng trong nước như 
+                    <span class="font-bold">Polyvac</span>, <span class="font-bold">Vabiotech</span>, 
+                    <span class="font-bold">Viện vắc xin và sinh phẩm y tế Nha Trang IVAC (Việt Nam)</span>, 
+                    <span class="font-bold">Viện Pasteur Đà Lạt (DAVAC)</span>..., 
+                    TITACHI được đảm bảo phân trực tiếp và có thể đặt mua vắc xin số lượng lớn thậm chí trong mùa cao điểm.
+                </p>
+                <p class="mb-4">Các loại vắc xin tại TITACHI đáp ứng nhu cầu tiêm chủng cho trẻ sơ sinh từ 1 tháng tuổi 
+                    cho đến người lớn trên 65 tuổi. Đặc biệt, Khách hàng tiêm lẻ tại TITACHI được miễn phí hoàn toàn khám sàng lọc 
+                    cùng nhiều dịch vụ chăm sóc; miễn phí đặt giữ vắc xin lẻ tiêm trong 35 ngày (*) và nhiều ưu đãi về 
+                    <span class="font-bold">giá vắc xin</span>.
+                </p>
+            </div>
+
+            <div  id="service2">
+                <h1 class="text-2xl font-bold text-blue-800 mb-4">Tiêm chủng vắc xin trọn gói</h1>
+                <p class="mb-4">Các Gói vắc xin tại Hệ thống Trung tâm tiêm chủng TITACHI được thiết kế cho nhiều nhóm đối tượng khác nhau cùng với <strong>bảng giá tiêm chủng TITACHI trọn gói</strong>:</p>
+                
+                <h2 class="text-lg font-semibold text-blue-800 mb-2">Gói vắc xin cho trẻ em:</h2>
+                <p class="mb-4">Trẻ em với hệ đề kháng non nớt rất dễ bị mắc bệnh và diễn biến nặng, ảnh hưởng đến sức khỏe và tương lai của trẻ sau này. Trong đó:</p>
+                <ul class="list-disc list-inside mb-4">
+                    <li>-Gói vắc xin cho trẻ từ 0 – 6 tháng gồm: 11 – 12 mũi tiêm, phòng hơn 15 bệnh truyền nhiễm nguy hiểm;</li>
+                    <li>-Gói vắc xin cho trẻ từ 0 – 9 tháng gồm: 15 – 17 mũi tiêm, phòng hơn 17 bệnh truyền nhiễm nguy hiểm;</li>
+                    <li>-Gói vắc xin cho trẻ từ 0 – 12 tháng gồm: 21 – 23 mũi tiêm, phòng hơn 22 bệnh truyền nhiễm nguy hiểm;</li>
+                    <li>-Gói vắc xin cho trẻ từ 0 – 24 tháng gồm: 29 – 30 mũi tiêm, phòng hơn 24 bệnh truyền nhiễm nguy hiểm.</li>
+                </ul>
+                
+                <h2 class="text-lg font-semibold text-blue-800 mb-2">Gói vắc xin cho trẻ tiền học đường:</h2>
+                <p>Để chuẩn bị hành trang cho trẻ sẵn sàng đến trường, tiêm vắc xin đầy đủ là bước không thể thiếu. 
+                    Gói tiêm chủng TITACHI cho trẻ tiền học đường với tổng 10 loại vắc xin, 14 liều cơ bản bảo vệ trẻ trước hơn 20 căn bệnh 
+                    truyền nhiễm nguy hiểm, tạo lớp “lá chắn” miễn dịch vững chắc cho trẻ bước đến tương lai.
+                </p>
+            </div>
+
+            <div  id="service3">
+                <h1 class="text-2xl font-bold text-blue-800 mb-4">Gói vắc xin cá thể hóa</h1>
+                <p class="mb-4">
+                    Tại TITACHI, Khách hàng còn có thể lựa chọn vắc xin thiết kế thành Gói riêng biệt, phù hợp với nhu cầu, 
+                    độ tuổi và khả năng chi trả. Đặc biệt, siêu tiết kiệm với ưu đãi lên đến 2.000.000 đồng.
+                </p>
+                <p class="mb-4">
+                    Quý Khách còn có thể mua Gói vắc xin theo hình thức trả góp Gói vắc xin không lãi suất, giúp giảm áp lực tài chính. 
+                    Song, vắc xin trong Gói được lưu trữ đầy đủ trong Hệ thống kho lạnh đạt chuẩn GSP lên đến 2 năm, đảm bảo các mũi tiêm đầy đủ 
+                    kể cả khi khan hiếm; Khách hàng tham gia mua Gói vắc xin được đón tiếp tại không gian riêng biệt, sang trọng, 
+                    quy trình tiêm chủng nhanh chóng, hạn chế tối đa thời gian chờ đợi, giúp tối ưu thời gian tiêm chủng cho cả gia đình. 
+                    Bên cạnh đó, TITACHI cam kết bình ổn giá trong suốt thời gian tham gia Gói;
+                    tự động nhắc lịch tiêm và sở hữu mã code định danh riêng cho từng Khách hàng để có thể tiêm tại bất cứ trung tâm nào 
+                    trong Hệ thống tiêm chủng TITACHI trên toàn quốc. Đặc biệt, TITACHI thường xuyên dành tặng những ưu đãi hấp dẫn 
+                    và nhiều phần quà giá trị độc quyền dành riêng cho Khách hàng trong suốt thời gian tham gia mua Gói vắc xin tại TITACHI.
+                </p>
+            </div>
+
+            <div  id="service4">
+                <h2 class="text-xl font-bold text-blue-800 mb-4">Dịch vụ tiêm chủng lưu động theo yêu cầu</h2>
+                <p class="mb-4">
+                    Sau đại dịch Covid-19, người dân đã ý thức hơn về tầm quan trọng và vai trò của vắc xin đối với sức khỏe. 
+                    Nhu cầu tiêm chủng của người dân ngày càng cao, đặc biệt là các doanh nghiệp sản xuất, 
+                    kinh doanh có dây chuyền vận hành nhiều khâu chuỗi liên đổi, quy mô nhân sự lớn, 
+                    tần suất và tỷ lệ tiếp xúc giữa người - người diễn ra rất cao trong môi trường làm việc. 
+                    Không tiêm vắc xin cũng đồng nghĩa với việc mất đi một lớp “lá chắn” vững chắc, nguy cơ mắc bệnh tăng cao, 
+                    sức khỏe người lao động bị ảnh hưởng dẫn đến đứt gãy chuỗi cung ứng.
+                </p>
+                <p class="mb-4">
+                    Để bảo vệ sức khỏe cho người lao động, đảm bảo quá trình sản xuất không bị ảnh hưởng, 
+                    Hệ thống tiêm chủng TITACHI mang đến giải pháp tiêm chủng lưu động theo yêu cầu của Khách hàng, 
+                    như tiêm chủng cá nhân, cơ quan, doanh nghiệp, trường học… giúp thuận tiện, tiết kiệm thời gian và chi phí tiêm chủng.
+                </p>
+            </div>
+
+            <div id="paymentMethods">
+                <h2 class="text-xl font-bold text-blue-800 mb-4">Các hình thức thanh toán khi tiêm vắc xin tại TITACHI</h2>
+                <p class="mb-4">
+                    Để quý Khách hàng an tâm tận hưởng dịch vụ tiêm chủng cao cấp tại TITACHI mà không cần lo lắng vấn đề thanh toán, 
+                    TITACHI linh hoạt áp dụng đa dạng hình thức thanh toán:
+                </p>
+                <ul class="list-disc list-inside mb-4">
+                    <li>-Thanh toán tiền mặt tại quầy thu ngân;</li>
+                    <li>-Thanh toán qua thẻ tín dụng;</li>
+                    <li>-Thanh toán quét thẻ thông qua máy POS tại trung tâm (chấp nhận các loại thẻ thanh toán nội địa ATM, thẻ Visa Debit, Visa Credit);</li>
+                    <li>-Thanh toán qua các dịch vụ thương mại điện tử, dịch vụ thanh toán di động, ví điện tử VNPAY-QR, Momo, Apple Pay…;</li>
+                    <li>-Thanh toán sau không lãi suất qua ứng dụng tài chính MCredit.</li>
+                </ul>
+            </div>
+
+            <div id="contactHotline">
+                <h2 class="text-xl font-bold text-blue-900 mb-4">Liên hệ hotline để được hướng dẫn thanh toán</h2>
+                <p class="mb-4">
+                    Không ngừng nâng cao chất lượng dịch vụ để phục vụ Khách hàng tốt nhất, TITACHI mở cửa sớm, 
+                    đóng cửa muộn từ 7h30 đến 17h tất cả các ngày trong tuần, cả thứ 7, chủ nhật và các ngày lễ lớn, 
+                    xuyên trưa không nghỉ… TITACHI sẽ hỗ trợ quý Khách chi tiết các bước thanh toán cho bằng gói vắc xin.
+                </p>
+            </div>
+        </div>  
+    </div>
+</body>
+
+</html>

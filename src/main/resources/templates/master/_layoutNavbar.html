@@ -1,0 +1,312 @@
+<div
+  style="height: 125px"
+  th:fragment="layout-navbar"
+  class="container-fluid position-relative p-0"
+>
+  <nav
+    class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0"
+    style="background-color: #E8E8E8;"
+  >
+    <a href="index.html" class="navbar-brand p-0">
+      <h1 class="text-primary m-0">
+        <img
+          src="../assets/img/logo.png"
+          alt=""
+          style="margin: 10px 0 10px 20px; max-height: none; height: 100px"
+          ;
+        />
+      </h1>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarCollapse"
+    >
+      <span class="fa fa-bars"></span>
+    </button>
+    <div class="navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav ms-auto py-0">
+        <a href="#" class="nav-item nav-link active">Trang chủ</a>
+        <a href="#" class="nav-item nav-link">Dịch vụ tiêm chủng</a>
+        <a href="#" class="nav-item nav-link">Bảng giá</a>
+        <a href="#" class="nav-item nav-link">Cẩm nang tiêm chủng</a>
+        <a href="#" class="nav-item nav-link">Gói vaccine</a>
+        <a href="#" class="nav-item nav-link">Tin tức</a>
+      </div>
+      <a
+        href="#"
+        class="btn btn-primary rounded-pill text-white py-2 px-4 flex-wrap flex-sm-shrink-0"
+        data-bs-toggle="modal"
+        data-bs-target="#authModal"
+        >Đăng nhập và Đặt lịch</a
+      >
+    </div>
+  </nav>
+
+  <!-- Carousel Start -->
+
+  <!-- Carousel End -->
+  <!-- Modal Đăng nhập & Đăng ký -->
+  <div
+    class="modal fade"
+    id="authModal"
+    tabindex="-1"
+    aria-labelledby="authModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="authModalLabel">Đăng nhập</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <!-- Tabs -->
+          <ul class="nav nav-tabs" id="authTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                id="login-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#login"
+                type="button"
+                role="tab"
+              >
+                Đăng nhập
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="register-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#register"
+                type="button"
+                role="tab"
+              >
+                Đăng ký
+              </button>
+            </li>
+          </ul>
+
+          <!-- Nội dung Đăng nhập / Đăng ký -->
+          <div class="tab-content mt-3" id="authTabsContent">
+            <!-- Form Đăng nhập -->
+            <div class="tab-pane fade show active" id="login" role="tabpanel">
+              <form id="loginForm">
+                <div class="mb-3">
+                  <label for="login-email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="login-email"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="login-password" class="form-label"
+                    >Mật khẩu</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="login-password"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary button-modal-hover w-100"
+                >
+                  Đăng nhập
+                </button>
+              </form>
+            </div>
+
+            <!-- Form Đăng ký -->
+            <div class="tab-pane fade" id="register" role="tabpanel">
+              <form id="registerForm">
+                <div class="mb-3">
+                  <label for="register-name" class="form-label"
+                    >Họ và tên phụ huynh</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="register-name"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="register-email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="register-email"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="register-phone" class="form-label"
+                    >Số điện thoại</label
+                  >
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="register-phone"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="register-password" class="form-label"
+                    >Mật khẩu</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="register-password"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="register-confirm-password" class="form-label"
+                    >Xác nhận mật khẩu</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="register-confirm-password"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary button-modal-hover w-100"
+                >
+                  Đăng ký
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      <!-- Modal thông báo lỗi đăng nhập -->
+      <div class="modal fade" id="loginErrorModal" tabindex="-1" aria-labelledby="loginErrorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+              <h5 class="modal-title" id="loginErrorModalLabel" style="color: white;">Lỗi đăng nhập</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+            <div class="modal-body">
+              Sai email hoặc mật khẩu. Vui lòng thử lại.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script th:inline="javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+         // Xử lý đăng nhập
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const email = document.getElementById("login-email").value;
+          const password = document.getElementById("login-password").value;
+
+          const loginData = { email, password };
+
+          fetch("/api/auth/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(loginData),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Đăng nhập thất bại");
+              }
+              return response.json();
+            })
+            .then((data) => {
+              if (data.token) {
+                localStorage.setItem("token", data.token);
+                localStorage.setItem("email", data.email);
+
+                if (data.user) {
+                  localStorage.setItem("currentUser", JSON.stringify(data.user));
+                  localStorage.setItem("role", data.user.role); // 👈 Lưu role vào localStorage
+                }
+
+                // Điều hướng theo role
+                if (data.user.role === "ADMIN" || data.user.role === "STAFF") {
+                  window.location.href = "/admin";
+                } else {
+                  window.location.href = "/indexLogin";
+                }
+              }
+            })
+            .catch(error => {
+              console.error("Lỗi đăng nhập:", error);
+              var myModal = new bootstrap.Modal(document.getElementById('loginErrorModal'));
+              myModal.show();
+            });
+        });
+          // Xử lý đăng ký
+          document.getElementById("registerForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+      
+            const password = document.getElementById("register-password").value;
+            const confirmPassword = document.getElementById("register-confirm-password").value;
+      
+            if (password !== confirmPassword) {
+              alert("Mật khẩu xác nhận không khớp!");
+              return;
+            }
+      
+            const registerData = {
+              fullName: document.getElementById("register-name").value,
+              email: document.getElementById("register-email").value,
+              phone: document.getElementById("register-phone").value,
+              password: password,
+            };
+      
+            fetch("/api/auth/register", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(registerData),
+            })
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error("Đăng ký thất bại");
+                }
+                return response.json();
+              })
+              .then((data) => {
+                if (data.token) {
+                  localStorage.setItem("token", data.token);
+                  location.reload(); // Đăng ký xong reload để chuyển sang login
+                }
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+                alert("Đăng ký thất bại: " + error.message);
+              });
+          });
+        });
+      </script>
+      
+</div>

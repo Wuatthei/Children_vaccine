@@ -1,0 +1,64 @@
+/* Reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Container chính */
+.container-check {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Tiêu đề */
+.title-check {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3EB489;
+    margin-bottom: 20px;
+}
+
+/* Nhóm nhập liệu */
+.mb-3 {
+    text-align: left;
+}
+
+.form-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Nút bấm */
+.btn-primary-check {
+    width: 100%;
+    padding: 10px;
+    background-color: #3EB489;
+    border-color: #3EB489;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-primary-check:hover {
+    box-shadow: inset 100vw 0 0 0 #faf9fb !important;
+    color: #3EB489 !important;
+    border-color: #3EB489;
+}

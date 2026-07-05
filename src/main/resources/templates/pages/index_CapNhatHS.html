@@ -1,0 +1,138 @@
+<body>
+  <div class="container">
+    <img
+      src="/src/main/resources/static/assets/img/thongtinhoso.png"
+      alt="Thông Tin Trẻ Em"
+      class="header-image"
+    />
+    <h2>THÔNG TIN TRẺ EM</h2>
+    <form id="profileForm">
+      <div class="form-group">
+        <label for="fullName">* Họ và Tên:</label>
+        <input type="text" id="fullName" required />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="dob">* Ngày Sinh:</label>
+          <input type="date" id="dob" required />
+        </div>
+        <div class="form-group">
+          <label for="cvc">Mã khách hàng TITACHI (nếu có):</label>
+          <input type="text" id="cvc" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>* Giới Tính:</label>
+        <div class="radio-group">
+          <input type="radio" id="male" name="gender" value="Nam" />
+          <label for="male">Nam</label>
+          <input type="radio" id="female" name="gender" value="Nữ" />
+          <label for="female">Nữ</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">* Số Điện Thoại(Người Giám Hộ):</label>
+        <input type="tel" id="phone" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">* Email:</label>
+        <input type="email" id="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="province">* Tỉnh thành:</label>
+        <input type="text" id="province" required />
+      </div>
+      <div class="form-group">
+        <label for="district">* Quận huyện:</label>
+        <input type="text" id="district" required />
+      </div>
+      <div class="form-group">
+        <label for="ward">* Phường xã:</label>
+        <input type="text" id="ward" required />
+      </div>
+
+      <div class="form-group">
+        <label for="address">Số nhà, tên đường:</label>
+        <input type="text" id="address" required />
+      </div>
+
+      <div class="form-group">
+        <label for="childProfile">Hồ Sơ Trẻ Em (nếu có):</label>
+        <input type="file" id="childProfile" accept=".pdf,.doc,.docx" />
+      </div>
+
+      <div class="form-group">
+        <label for="profilePic">Ảnh Đại Diện:</label>
+        <input type="file" id="profilePic" accept="image/*" />
+      </div>
+
+      <button class="button-submit" type="submit">Lưu Thông Tin</button>
+    </form>
+    <div id="preview"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+<style>
+  .container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  .header-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+  }
+  .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+  }
+  .form-group label {
+    flex: 1;
+    text-align: left;
+    padding-right: 10px;
+    font-weight: bold;
+  }
+  .form-group input {
+    flex: 2;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .radio-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .radio-group input {
+    margin: 0;
+  }
+  .radio-group label {
+    margin-left: 5px;
+    font-weight: bold;
+  }
+  .button-submit {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .button-submit:hover {
+    background-color: #0056b3;
+  }
+</style>

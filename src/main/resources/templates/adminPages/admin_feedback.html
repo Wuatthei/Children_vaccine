@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đánh giá và Phản hồi</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #eef2f3, #ffffff);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 40px 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      padding: 30px;
+    }
+
+    h2, h3 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    #rating {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .star {
+      font-size: 36px;
+      cursor: pointer;
+      color: #ccc;
+      transition: color 0.3s ease;
+    }
+
+    .star:hover,
+    .star.selected {
+      color: #f1c40f;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 15px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: vertical;
+      margin-bottom: 20px;
+      transition: border 0.3s ease;
+    }
+
+    textarea:focus {
+      border-color: #3498db;
+      outline: none;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .feedback-item {
+      background-color: #fafafa;
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 10px;
+    }
+
+    .feedback-item strong {
+      color: #f39c12;
+      font-size: 18px;
+    }
+
+    .feedback-item em {
+      color: #777;
+      font-size: 13px;
+    }
+
+    .feedback-item p {
+      margin: 8px 0 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h3 style="padding-top:20px;">📋 Phản hồi đã gửi:</h3>
+    <div id="feedbackList"></div>
+  </div>
+
+  <script src="../assets/js/feedback.js"></script>
+</body>
+</html>

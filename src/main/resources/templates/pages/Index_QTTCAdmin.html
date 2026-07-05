@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản Lý Tiêm Chủng - Admin</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(to right, #e0f7fa, #ffffff);
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      .card {
+        border-radius: 16px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+      }
+
+      .step-box {
+        padding: 15px 20px;
+        border-left: 6px solid #dee2e6;
+        border-radius: 10px;
+        background-color: #f8f9fa;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s;
+      }
+
+      .step-box.completed {
+        background-color: #d1e7dd;
+        border-left-color: #198754;
+      }
+
+      .step-box span {
+        font-size: 16px;
+      }
+
+      .step-box input[type="checkbox"] {
+        transform: scale(1.3);
+      }
+
+      .title-section {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .title-section h2 {
+        font-weight: bold;
+        color: #0d6efd;
+      }
+
+      .btn-success {
+        border-radius: 20px;
+        padding: 8px 25px;
+        font-weight: 500;
+      }
+
+      .info-row p {
+        margin: 4px 0;
+      }
+
+      .info-label {
+        font-weight: bold;
+        color: #495057;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container py-5">
+      <div class="card p-4">
+        <div class="title-section">
+          <h2>🩺 Quản Lý Hồ Sơ Tiêm Chủng</h2>
+          <p class="text-muted">Thông tin chi tiết và tiến trình của trẻ</p>
+        </div>
+
+        <div id="childInfo" class="mb-4 border-bottom pb-3"></div>
+
+        <h5 class="mb-3">📊 Quy Trình Tiêm Chủng</h5>
+        <div id="timeline"></div>
+
+        <div class="text-end mt-4">
+          <button class="btn btn-success" onclick="saveProgress()">
+            💾 Lưu tiến độ
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const steps = [
+        "📝 Đặt lịch tiêm chủng",
+        "🏥 Đến tiêm tại cơ sở",
+        "📄 Ghi nhận kết quả tiêm chủng",
+        "💰 Thanh toán",
+        "⭐ Đánh giá cơ sở tiêm chủng",
+      ];
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const childId = parseInt(urlParams.get("id"));
+      const childrenList =
+        JSON.parse(localStorage.getItem("childrenList")) || [];
+      const child = childrenList.find((c) => c.id === childId);
+
+      if (!child) {
+        document.body.innerHTML =
+          "<div class='container py-5'><h4 class='text-danger'>❌ Không tìm thấy hồ sơ trẻ!</h4></div>";
+      } else {
+        const childInfoDiv = document.getElementById("childInfo");
+        childInfoDiv.innerHTML = `
+        <div class="row info-row">
+          <div class="col-md-6"><p><span class="info-label">👶 Họ tên:</span> ${child.name}</p></div>
+          <div class="col-md-6"><p><span class="info-label">🎂 Ngày sinh:</span> ${child.dob}</p></div>
+          <div class="col-md-6"><p><span class="info-label">🚻 Giới tính:</span> ${child.gender}</p></div>
+          <div class="col-md-6"><p><span class="info-label">👨‍👩‍👧 Tên cha/mẹ:</span> ${child.parentName}</p></div>
+          <div class="col-md-6"><p><span class="info-label">📞 SĐT:</span> ${child.phone}</p></div>
+          <div class="col-md-6"><p><span class="info-label">📍 Địa chỉ:</span> ${child.address}</p></div>
+        </div>
+      `;
+
+        const timelineDiv = document.getElementById("timeline");
+        steps.forEach((step, index) => {
+          const isChecked = child.progress?.includes(index);
+          timelineDiv.innerHTML += `
+          <div class="step-box ${isChecked ? "completed" : ""}">
+            <span>${step}</span>
+            <input type="checkbox" data-step="${index}" ${
+            isChecked ? "checked" : ""
+          } onchange="toggleStep(this)">
+          </div>
+        `;
+        });
+      }
+
+      function toggleStep(checkbox) {
+        const stepIndex = parseInt(checkbox.dataset.step);
+        const stepBoxes = document.querySelectorAll(".step-box");
+        const currentStep = stepBoxes[stepIndex];
+        if (checkbox.checked) {
+          currentStep.classList.add("completed");
+        } else {
+          currentStep.classList.remove("completed");
+        }
+      }
+
+      function saveProgress() {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const checkedSteps = [];
+        checkboxes.forEach((cb, i) => {
+          if (cb.checked) checkedSteps.push(i);
+        });
+
+        const childIndex = childrenList.findIndex((c) => c.id === childId);
+        childrenList[childIndex].progress = checkedSteps;
+
+        localStorage.setItem("childrenList", JSON.stringify(childrenList));
+        alert("✅ Tiến độ đã được lưu thành công!");
+      }
+    </script>
+  </body>
+</html>

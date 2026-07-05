@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Admin - Danh sách phản ứng</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: center;
+      }
+      th {
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <main class="admin-content" id="admin-content">
+    <h2>📋 Danh sách phản ứng sau tiêm</h2>
+
+    <table class="text-dark">
+      <thead>
+        <tr>
+          <th>Họ tên</th>
+          <th>Mũi tiêm</th>
+          <th>Triệu chứng</th>
+          <th>Mô tả</th>
+          <th>Thời gian</th>
+        </tr>
+      </thead>
+      <tbody id="phanUngTable">
+        <!-- Dữ liệu phản ứng sẽ được hiển thị tại đây -->
+      </tbody>
+    </table>
+
+    <script src="../assets/js/phan_ung.js" defer></script>
+  </main>
+</html>

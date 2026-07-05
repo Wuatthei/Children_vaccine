@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh Sách Trẻ Em Tiêm Chủng</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .container {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        font-weight: bold;
+        margin-bottom: 30px;
+        color: #0d6efd;
+      }
+
+      table th,
+      table td {
+        vertical-align: middle;
+        text-align: center;
+      }
+
+      .btn-primary {
+        border-radius: 20px;
+        padding: 6px 20px;
+      }
+
+      .btn-primary:hover {
+        background-color: #0b5ed7;
+      }
+
+      @media (max-width: 768px) {
+        table thead {
+          display: none;
+        }
+
+        table tbody tr {
+          display: block;
+          margin-bottom: 15px;
+          background-color: #fff;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+          border-radius: 8px;
+          padding: 10px;
+        }
+
+        table td {
+          display: flex;
+          justify-content: space-between;
+          padding: 10px;
+        }
+
+        table td::before {
+          content: attr(data-label);
+          font-weight: bold;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container my-5">
+      <h2 class="text-center">📋 Danh Sách Trẻ Em Tiêm Chủng</h2>
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Họ và tên</th>
+              <th>Ngày sinh</th>
+              <th>Giới tính</th>
+              <th>Tên cha/mẹ</th>
+              <th>Số điện thoại</th>
+              <th>Địa chỉ</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody id="customerTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      const children = [
+        {
+          id: 1,
+          name: "Nguyễn Văn A",
+          dob: "2020-05-12",
+          gender: "Nam",
+          parentName: "Nguyễn Văn B",
+          phone: "0901234567",
+          address: "123 Lê Lợi, Quận 1",
+          progress: [],
+        },
+        {
+          id: 2,
+          name: "Trần Thị B",
+          dob: "2021-03-25",
+          gender: "Nữ",
+          parentName: "Trần Văn C",
+          phone: "0912345678",
+          address: "456 Hai Bà Trưng, Quận 3",
+          progress: [],
+        },
+        {
+          id: 3,
+          name: "Lê Hoàng C",
+          dob: "2019-11-05",
+          gender: "Nam",
+          parentName: "Lê Văn D",
+          phone: "0987654321",
+          address: "789 Nguyễn Huệ, Quận 5",
+          progress: [],
+        },
+      ];
+
+      localStorage.setItem("childrenList", JSON.stringify(children));
+
+      const table = document.getElementById("customerTable");
+      children.forEach((child) => {
+        table.innerHTML += `
+        <tr>
+          <td data-label="Họ và tên">${child.name}</td>
+          <td data-label="Ngày sinh">${child.dob}</td>
+          <td data-label="Giới tính">${child.gender}</td>
+          <td data-label="Tên cha/mẹ">${child.parentName}</td>
+          <td data-label="SĐT">${child.phone}</td>
+          <td data-label="Địa chỉ">${child.address}</td>
+          <td data-label="Thao tác">
+            <a href="Index_QTTCAdmin.html?id=${child.id}" class="btn btn-primary btn-sm">
+
+              Cập nhật tiến độ
+            </a>
+          </td>
+        </tr>
+      `;
+      });
+    </script>
+  </body>
+</html>

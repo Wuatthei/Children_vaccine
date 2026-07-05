@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="master/head :: head"></head>
+  <head>
+    <link rel="stylesheet" href="../assets/css/style2.css" />
+    <link rel="stylesheet" href="/assets/css/style_Support.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/styles_DatLich.css">
+    <link rel="stylesheet" href="/assets/css/style_ChatSupport.css">
+  </head>
+
+  <button id="chatButton" onclick="toggleChatBox()">
+    💬
+  </button>
+
+  <!-- Khung Chat -->
+  <div id="chatBox" style="display: none;">
+    <div id="chatHeader">Chat với nhân viên<span onclick="toggleChatBox()">✖</span></div>
+    <div id="chatMessages"></div>
+    <div id="chatInputArea">
+      <input type="text" id="chatInput" placeholder="Nhập tin nhắn..." />
+      <button onclick="sendChat()">Gửi</button>
+    </div>
+  </div>
+
+  <body style="display: block">
+    <div class="container_indexafterlogin">
+      <header class="navbar">
+        <div
+          th:fragment="layout-navbar"
+          class="container-fluid position-relative p-0"
+        >
+          <nav
+            class="navbar navbar-expand-lg navbar-light bg-white px-4 px-lg-5 py-3 py-lg-0"
+          >
+            <a href="index.html" class="navbar-brand p-0">
+              <h1 class="text-primary m-0">
+                <img
+                  src="../assets/img/logo.png"
+                  alt=""
+                  style="
+                    margin: 10px 0 10px 20px;
+                    max-height: none;
+                    height: 100px;
+                  "
+                  ;
+                />
+              </h1>
+              <!-- <img src="../assets/img/logo.png" alt="Logo"> -->
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarCollapse"
+            >
+              <span class="fa fa-bars"></span>
+            </button>
+            <div class="navbar-collapse" id="navbarCollapse">
+              <div class="navbar-nav ms-auto py-0">
+                <a href="#" class="nav-item nav-link active">Trang chủ</a>
+                <a href="#" class="nav-item nav-link">Dịch vụ tiêm chủng</a>
+                <a href="#" class="nav-item nav-link">Bảng giá</a>
+                <a href="#" class="nav-item nav-link">Cẩm nang tiêm chủng</a>
+                <a href="#" class="nav-item nav-link">Gói vaccine</a>
+                <a href="#" class="nav-item nav-link">Tin tức</a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <div class="layout">
+        <div
+          th:replace="master/_layoutSidebar :: layout-sidebar"
+          class="sidebar"
+        ></div>
+        <main class="content" id="content">
+          <img src="../assets/img/backgroundafterIDX.png" alt="">
+        </main>
+      </div>
+    </div>
+    <script src="../assets/js/indexALogin.js"></script>
+    <script src="../assets/js/progress.js"></script>
+    <script src="../assets/js/Chat.js"></script>
+  </body>
+</html>

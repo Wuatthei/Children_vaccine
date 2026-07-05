@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Phản ứng sau tiêm - Người dùng</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #f4f7f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 30px;
+      margin-top: 50px;
+      margin-left:400px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #34495e;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: border-color 0.2s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #3498db;
+      outline: none;
+    }
+
+    .button-submit {
+      width: 100%;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .button-submit:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>📝 Ghi nhận phản ứng sau tiêm</h2>
+
+    <form id="reactionForm">
+      <label>Họ tên:</label>
+      <input type="text" id="name" required>
+
+      <label>Mũi tiêm:</label>
+      <input type="text" id="muiTiem" required>
+
+      <label>Triệu chứng:</label>
+      <input type="text" id="trieuChung" required>
+
+      <label>Mô tả chi tiết:</label>
+      <textarea id="moTa" rows="4"></textarea>
+
+      <button class="button-submit" type="submit">Gửi phản hồi</button>
+    </form>
+  </div>
+
+  <script src="../assets/js/phan_ung.js" defer></script>
+</body>
+</html>

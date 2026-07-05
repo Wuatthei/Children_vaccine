@@ -1,0 +1,156 @@
+<body>
+  <!-- Banner -->
+  <div class="container text-center py-5">
+    <h1 class="fw-bold text-primary display-6" style="font-family: Arial">
+      ĐẶT LỊCH TIÊM CHỦNG
+    </h1>
+    <p class="lead text-muted">
+      Đăng ký trước để tiết kiệm thời gian làm thủ tục
+    </p>
+
+    <!-- Image under the title -->
+    <div class="w-full text-center banner-image">
+      <img
+        src="../assets/img/datlich.png"
+        alt="Vaccine Banner"
+        class="inline-block rounded"
+        style="width: 500px"
+      />
+    </div>
+  </div>
+
+  <!-- Appointment Section -->
+  <div class="container">
+    <div class="appointment-box p-4 shadow rounded bg-light">
+      <form>
+        <!-- Thông tin người tiêm -->
+        <fieldset class="border p-3 mb-4 fw-bold text-dark">
+          <legend class="float-none w-auto px-2">THÔNG TIN NGƯỜI TIÊM</legend>
+
+          <div class="mb-3">
+            <label class="form-label">* Họ tên người tiêm</label>
+            <input
+              type="text"
+              id="hoTenNguoiTiem"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">* Ngày sinh</label>
+              <input type="date" id="ngaySinh" class="form-control" required />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Mã khách hàng TITACHI</label>
+              <input
+                type="text"
+                id="maKhachHang"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">* Giới tính</label>
+            <div>
+              <input type="radio" name="gender" value="Nam" /> Nam
+              <input type="radio" name="gender" value="Nữ" class="ms-3" /> Nữ
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label class="form-label">* Địa chỉ</label>
+              <input
+                type="text"
+                id="address"
+                class="form-control"
+                placeholder="Nhập địa chỉ"
+                required
+              />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Thông tin liên hệ -->
+        <fieldset class="border p-3 mb-4 fw-bold text-dark">
+          <legend class="float-none w-auto px-2">THÔNG TIN LIÊN HỆ</legend>
+
+          <div class="mb-3">
+            <label class="form-label">* Họ tên người liên hệ</label>
+            <input
+              type="text"
+              id="hoTenNguoiLienHe"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">* Mối quan hệ</label>
+              <select id="moiQuanHe" class="form-select" required>
+                <option value="">Chọn</option>
+                <option value="Bố/Mẹ">Bố/Mẹ</option>
+                <option value="Anh/Chị">Anh/Chị</option>
+                <option value="Khác">Khác</option>
+              </select>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">* Số điện thoại</label>
+              <input
+                type="tel"
+                id="soDienThoai"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Thông tin dịch vụ -->
+        <fieldset class="border p-3 mb-4 fw-bold text-dark">
+          <legend class="float-none w-auto px-2">THÔNG TIN DỊCH VỤ</legend>
+
+          <div class="mb-3">
+            <label class="form-label">* Loại vắc xin muốn đăng ký</label>
+            <div>
+              <input type="radio" name="vaccineType" value="Vắc xin gói" />
+              Vắc xin gói
+              <input
+                type="radio"
+                name="vaccineType"
+                value="Vắc xin lẻ"
+                class="ms-3"
+              />
+              Vắc xin lẻ
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">* Trung tâm TITACHI muốn tiêm</label>
+            <select id="trungTam" class="form-select" required>
+              <option value="">Chọn</option>
+              <option value="Q1">Trung tâm TITACHI quận 1</option>
+              <option value="Q4">Trung tâm TITACHI quận 4</option>
+              <option value="QBT">Trung tâm TITACHI quận Bình Thạnh</option>
+              <option value="QTD">Trung tâm TITACHI Thủ Đức</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">* Ngày mong muốn tiêm</label>
+            <input type="date" id="ngayTiem" class="form-control" required />
+          </div>
+        </fieldset>
+
+        <button type="submit" class="btn btn-primary w-100">
+          Hoàn thành đăng ký
+        </button>
+      </form>
+    </div>
+  </div>
+</body>

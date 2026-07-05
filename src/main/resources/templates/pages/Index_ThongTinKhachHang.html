@@ -1,0 +1,180 @@
+<style>
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .container {
+    max-width: 850px;
+    margin-top: 50px;
+    background-color: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #0d6efd;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  .section-title {
+    font-weight: bold;
+    color: #0d6efd;
+    margin-top: 35px;
+    margin-bottom: 15px;
+  }
+  .form-control[readonly],
+  .form-select:disabled,
+  textarea[readonly] {
+    background-color: #f5f5f5;
+    color: #333;
+    border: 1px solid #dee2e6;
+  }
+  label.form-label {
+    font-weight: 500;
+  }
+  .text-end button {
+    min-width: 120px;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <h3 class="text-center mb-4 text-primary fw-bold">Thông Tin Khách Hàng</h3>
+
+    <!-- Ảnh đại diện -->
+    <div class="avatar-container d-flex flex-column align-items-center mb-4">
+      <img src="../assets/img/avt.jpg" alt="Ảnh đại diện" class="avatar" />
+      <p class="text-muted mt-2">Ảnh đại diện của trẻ</p>
+    </div>
+
+    <form id="customerForm">
+      <h5 class="section-title text-start">👶 Thông Tin Trẻ Tiêm Chủng</h5>
+      <div class="mb-3">
+        <label class="form-label">Họ và tên</label>
+        <input type="text" class="form-control" id="fullname" readonly />
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Ngày sinh</label>
+          <input type="date" class="form-control" id="dob" readonly />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Giới tính</label>
+          <select class="form-select" id="gender" disabled>
+            <option selected>Nam</option>
+            <option>Nữ</option>
+            <option>Khác</option>
+          </select>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Mã khách hàng</label>
+        <input type="text" class="form-control" id="maKhachHang" readonly />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Địa chỉ</label>
+        <textarea class="form-control" id="address" rows="2" readonly>
+        </textarea>
+      </div>
+
+      <h5 class="section-title text-start">👨‍👩‍👧 Thông Tin Người Giám Hộ</h5>
+      <div class="mb-3">
+        <label class="form-label">Họ tên người liên hệ</label>
+        <input type="text" class="form-control" id="guardianName" readonly />
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Mối quan hệ</label>
+          <select class="form-select" id="relation" disabled>
+            <option selected>Bố/Mẹ</option>
+            <option>Anh/Chị</option>
+            <option>Khác</option>
+          </select>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Số điện thoại</label>
+          <input type="tel" class="form-control" id="phone" readonly />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" readonly />
+      </div>
+      <div class="text-end">
+        <button type="button" id="editBtn" class="btn btn-warning">
+          Chỉnh sửa
+        </button>
+        <button type="button" id="saveBtn" class="btn btn-success d-none">
+          Hoàn thành
+        </button>
+      </div>
+    </form>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("Script loaded!"); // ✅ Kiểm tra xem đoạn script có chạy không
+
+      const editBtn = document.getElementById("editBtn");
+      const saveBtn = document.getElementById("saveBtn");
+      const form = document.getElementById("customerForm");
+
+      console.log("editBtn:", editBtn);
+      console.log("saveBtn:", saveBtn);
+      console.log("form:", form);
+
+      const inputs = form.querySelectorAll("input, select, textarea");
+
+      editBtn.addEventListener("click", () => {
+        console.log("okkkk");
+        inputs.forEach((input) => {
+          if (input.tagName === "SELECT" || input.tagName === "TEXTAREA") {
+            input.removeAttribute("disabled");
+          } else {
+            input.removeAttribute("readonly");
+          }
+        });
+        editBtn.classList.add("d-none");
+        saveBtn.classList.remove("d-none");
+      });
+
+      saveBtn.addEventListener("click", () => {
+        const updatedData = {
+          fullname: document.getElementById("fullname").value,
+          dob: document.getElementById("dob").value,
+          gender: document.getElementById("gender").value,
+          maKhachHang: document.getElementById("maKhachHang").value,
+          address: document.getElementById("address").value,
+          guardianName: document.getElementById("guardianName").value,
+          relation: document.getElementById("relation").value,
+          phone: document.getElementById("phone").value,
+          email: document.getElementById("email").value,
+        };
+
+        fetch("API_URL_TO_UPDATE_USER", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updatedData),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            alert("Thông tin đã được cập nhật!");
+            inputs.forEach((input) => {
+              if (input.tagName === "SELECT" || input.tagName === "TEXTAREA") {
+                input.setAttribute("disabled", true);
+              } else {
+                input.setAttribute("readonly", true);
+              }
+            });
+            editBtn.classList.remove("d-none");
+            saveBtn.classList.add("d-none");
+          })
+          .catch((error) => {
+            console.error("Lỗi khi cập nhật thông tin:", error);
+            alert("Có lỗi xảy ra khi cập nhật thông tin.");
+          });
+      });
+    });
+  </script>
+</body>

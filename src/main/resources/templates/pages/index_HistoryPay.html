@@ -1,0 +1,133 @@
+<body>
+  <div class="container">
+    <div class="dong1 d-flex align-items-center mb-3">
+      <h1 class="text-center m-0">Lịch Sử Giao Dịch</h1>
+    </div>
+
+    <div class="container mt-4">
+      <div class="row g-2 align-items-center">
+        <div class="col-md-6">
+          <input
+            type="text"
+            id="search"
+            class="form-control align-items-center form-control-lg"
+            placeholder="Tìm kiếm theo mã hóa đơn"
+          />
+        </div>
+        <div class="col-md-4">
+          <select id="filter" class="form-select">
+            <option value="">Tất cả trạng thái</option>
+            <option value="Đã thanh toán">Đã thanh toán</option>
+            <option value="Chưa thanh toán">Chưa thanh toán</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-primary w-100" onclick="applyFilter()">
+            Lọc
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Số phiếu</th>
+          <th>Mã hóa đơn</th>
+          <th>Ngày thu</th>
+          <th>Số tiền</th>
+          <th>Trạng thái</th>
+          <th>Chi tiết</th>
+        </tr>
+      </thead>
+      <tbody id="transactionTable">
+        <tr>
+          <td>ví dụ</td>
+          <td>202401</td>
+          <td>HD123456</td>
+          <td>2024-03-01</td>
+          <td>1.500.000 VND</td>
+          <td class="text-success">Đã thanh toán</td>
+          <td><button class="btn btn-info btn-sm">Xem</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .dong1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 2px solid #3fbbc0;
+    border-radius: 12px; /* Bo tròn góc */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+  }
+
+  .dong1 img {
+    width: 150px;
+    height: auto;
+  }
+
+  .TieuDe h1 {
+    font-size: 24px;
+    margin: 0;
+    color: black;
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+
+  th {
+    background-color: #3fbbc0;
+    color: white;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  button {
+    transition: 0.3s;
+  }
+
+  button:hover {
+    opacity: 0.8;
+  }
+
+  .col-md-2 button {
+    background-color: #3fbbc0;
+  }
+</style>

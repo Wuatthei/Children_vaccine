@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Theo dõi tiêm chủng</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
+    th { background-color: #e0f7fa; }
+    .done { color: green; font-weight: bold; }
+    .pending { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>📅 Quá trình tiêm chủng của bạn: <span style="font-weight: bold; font-size:28px;" id="username"></span></h1>
+
+  <table class="text-dark">
+    <thead>
+      <tr>
+        <th>Mũi tiêm</th>
+        <th>Ngày</th>
+        <th>Trạng thái</th>
+      </tr>
+    </thead>
+    <tbody id="userProgressTable">
+
+    </tbody>
+  </table>
+  
+</body>
+</html>

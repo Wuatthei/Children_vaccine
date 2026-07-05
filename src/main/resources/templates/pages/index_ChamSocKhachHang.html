@@ -1,0 +1,565 @@
+<body class="font-sans bg-gray-100">
+  <!-- Banner -->
+  <div class="container mx-auto flex justify-center">
+    <div
+      class="w-full text-center text-white py-6 rounded-xl bg-gradient-to-r from-teal-500 to-teal-700"
+    >
+      <h1 class="text-3xl font-bold mb-4">CHĂM SÓC KHÁCH HÀNG</h1>
+      <div class="flex flex-wrap justify-center gap-3">
+        <button
+          class="border-2 border-white text-white px-4 py-2 rounded-lg hover:bg-white hover:text-teal-700 transition"
+        >
+          Vắc xin theo nhóm bệnh
+        </button>
+        <button
+          class="border-2 border-white text-white px-4 py-2 rounded-lg hover:bg-white hover:text-teal-700 transition"
+        >
+          Vắc xin theo độ tuổi
+        </button>
+      </div>
+      <div class="mt-4 flex justify-center">
+        <input
+          type="text"
+          placeholder="Tìm kiếm..."
+          class="w-1/2 px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Danh sách vắc xin -->
+  <section class="container mx-auto my-6">
+    <div class="grid grid-cols-6 gap-4 text-center">
+      <div
+        class="bg-white rounded-lg p-3 transition transform hover:scale-105 hover:shadow-lg"
+      >
+        <img
+          src="../assets/img/logoVacxin/Vắc xin 5IN1.png"
+          class="w-16 h-16 mx-auto mb-2 object-contain"
+        />
+        <p>Vắc xin 5IN1</p>
+      </div>
+      <div
+        class="bg-white rounded-lg p-3 transition transform hover:scale-105 hover:shadow-lg"
+      >
+        <img
+          src="../assets/img/logoVacxin/Vắc xin viêm gan B.png"
+          class="w-16 h-16 mx-auto mb-2 object-contain"
+        />
+        <p>Vắc xin Viêm Gan B</p>
+      </div>
+      <div
+        class="bg-white rounded-lg p-3 transition transform hover:scale-105 hover:shadow-lg"
+      >
+        <img
+          src="../assets/img/logoVacxin/Vắc xin 4IN1.png"
+          class="w-16 h-16 mx-auto mb-2 object-contain"
+        />
+        <p>Vắc xin 4IN1</p>
+      </div>
+      <div
+        class="bg-white rounded-lg p-3 transition transform hover:scale-105 hover:shadow-lg"
+      >
+        <img
+          src="../assets/img/logoVacxin/Vắc xin Rota Virus.png"
+          class="w-16 h-16 mx-auto mb-2 object-contain"
+        />
+        <p>Vắc xin Rota Virus</p>
+      </div>
+      <div
+        class="bg-white rounded-lg p-3 transition transform hover:scale-105 hover:shadow-lg"
+      >
+        <img
+          src="../assets/img/logoVacxin/Vắc xin 3IN1.png"
+          class="w-16 h-16 mx-auto mb-2 object-contain"
+        />
+        <p>Vắc xin 3IN1</p>
+      </div>
+      <div
+        class="bg-white rounded-lg p-3 transition transform hover:scale-105 hover:shadow-lg"
+      >
+        <img
+          src="../assets/img/logoVacxin/Vắc xin viêm não.png"
+          class="w-16 h-16 mx-auto mb-2 object-contain"
+        />
+        <p>Vắc xin Viêm Não</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bảng lịch tiêm chủng -->
+  <section class="container mx-auto my-6">
+    <h3 class="text-center text-xl font-semibold mb-4">
+      Lịch Tiêm Chủng Cho Trẻ Em Tại Việt Nam
+    </h3>
+    <div class="overflow-x-auto">
+      <table class="table-auto w-full border border-gray-300 rounded-lg">
+        <thead class="bg-teal-700 text-white">
+          <tr>
+            <th class="px-4 py-2 border">Giai đoạn</th>
+            <th class="px-4 py-2 border">Loại vắc-xin</th>
+            <th class="px-4 py-2 border">Lịch tiêm</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white text-center">
+          <!-- Sơ sinh -->
+          <tr>
+            <td rowspan="2" class="px-4 py-2 border">Sơ sinh (0 - 1 tháng)</td>
+            <td class="px-4 py-2 border">Viêm gan B</td>
+            <td class="px-4 py-2 border">Mũi 1 trong vòng 24 giờ sau sinh</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 border">Lao (BCG)</td>
+            <td class="px-4 py-2 border">
+              Mũi duy nhất trong tháng đầu sau sinh
+            </td>
+          </tr>
+          <!-- 2 tháng -->
+          <tr>
+            <td rowspan="3" class="px-4 py-2 border">2 tháng tuổi</td>
+            <td class="px-4 py-2 border">
+              Bạch hầu, Ho gà, Uốn ván, Bại liệt, Hib
+            </td>
+            <td class="px-4 py-2 border">Mũi 1</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 border">Viêm gan B</td>
+            <td class="px-4 py-2 border">Mũi 2</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 border">Phế cầu</td>
+            <td class="px-4 py-2 border">Mũi 1</td>
+          </tr>
+          <!-- 3 tháng -->
+          <tr>
+            <td class="px-4 py-2 border">3 tháng tuổi</td>
+            <td class="px-4 py-2 border">
+              Bạch hầu, Ho gà, Uốn ván, Bại liệt, Hib
+            </td>
+            <td class="px-4 py-2 border">Mũi 2</td>
+          </tr>
+          <!-- 4 tháng -->
+          <tr>
+            <td rowspan="2" class="px-4 py-2 border">4 tháng tuổi</td>
+            <td class="px-4 py-2 border">
+              Bạch hầu, Ho gà, Uốn ván, Bại liệt, Hib
+            </td>
+            <td class="px-4 py-2 border">Mũi 3</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 border">Phế cầu</td>
+            <td class="px-4 py-2 border">Mũi 2</td>
+          </tr>
+          <!-- 6 tháng -->
+          <tr>
+            <td rowspan="2" class="px-4 py-2 border">6 tháng tuổi</td>
+            <td class="px-4 py-2 border">Viêm gan B</td>
+            <td class="px-4 py-2 border">Mũi 3</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 border">Cúm</td>
+            <td class="px-4 py-2 border">Mũi đầu tiên (tiêm hằng năm)</td>
+          </tr>
+          <!-- 9 tháng -->
+          <tr>
+            <td class="px-4 py-2 border">9 tháng tuổi</td>
+            <td class="px-4 py-2 border">Sởi</td>
+            <td class="px-4 py-2 border">Mũi 1</td>
+          </tr>
+          <!-- 12 tháng -->
+          <tr>
+            <td rowspan="3" class="px-4 py-2 border">12 tháng tuổi</td>
+            <td class="px-4 py-2 border">Viêm não Nhật Bản</td>
+            <td class="px-4 py-2 border">Mũi 1</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 border">Phế cầu</td>
+            <td class="px-4 py-2 border">Mũi 3</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 border">Thủy đậu</td>
+            <td class="px-4 py-2 border">Mũi 1</td>
+          </tr>
+          <!-- 15 tháng -->
+          <tr>
+            <td rowspan="2" class="px-4 py-2 border">15 tháng tuổi</td>
+            <td class="px-4 py-2 border">Sởi - Quai bị - Rubella (MMR)</td>
+            <td class="px-4 py-2 border">Mũi 1</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 border">Viêm não Nhật Bản</td>
+            <td class="px-4 py-2 border">Mũi 2</td>
+          </tr>
+          <!-- 18 tháng -->
+          <tr>
+            <td class="px-4 py-2 border">18 tháng tuổi</td>
+            <td class="px-4 py-2 border">
+              Bạch hầu, Ho gà, Uốn ván, Bại liệt, Hib
+            </td>
+            <td class="px-4 py-2 border">Nhắc lại</td>
+          </tr>
+          <!-- 2 - 6 tuổi -->
+          <tr>
+            <td rowspan="2" class="px-4 py-2 border">2 - 6 tuổi</td>
+            <td class="px-4 py-2 border">Viêm não Nhật Bản</td>
+            <td class="px-4 py-2 border">Mũi 3</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 border">Cúm</td>
+            <td class="px-4 py-2 border">Tiêm nhắc lại hằng năm</td>
+          </tr>
+          <!-- 4 - 6 tuổi -->
+          <tr>
+            <td class="px-4 py-2 border">4 - 6 tuổi</td>
+            <td class="px-4 py-2 border">Bạch hầu, Ho gà, Uốn ván, Bại liệt</td>
+            <td class="px-4 py-2 border">Mũi nhắc lại</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-gray-600 text-center mt-4">
+      <strong>Lưu ý:</strong> Lịch tiêm có thể thay đổi theo hướng dẫn của Bộ Y
+      tế. Tham khảo ý kiến bác sĩ trước khi tiêm.
+    </p>
+  </section>
+
+  <!-- Sản phẩm vắc xin -->
+  <section class="container mx-auto text-center my-8">
+    <h2 class="text-2xl font-bold mb-6">Thông tin sản phẩm Vắc xin</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- 1. Qdenga -->
+      <div
+        class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-2 transition"
+      >
+        <img
+          src="../assets/img/imgVaccine/Vắc xin Odenga.jpg"
+          class="w-full h-40 object-cover rounded-t-xl"
+        />
+        <div class="p-4">
+          <h5 class="text-lg font-bold text-teal-700 mb-2">
+            Vắc xin Qdenga (Nhật Bản)
+          </h5>
+          <p class="text-sm text-gray-600">
+            Vắc xin Qdenga phòng sốt xuất huyết, đã được phê duyệt sử dụng tại
+            hơn 40 quốc gia.
+          </p>
+          <a
+            href="#"
+            class="inline-block mt-3 bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-400 transition"
+            >Chi tiết</a
+          >
+        </div>
+      </div>
+
+      <!-- 2. ComBE Five -->
+      <div
+        class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-2 transition"
+      >
+        <img
+          src="../assets/img/imgVaccine/vaccine2.jpg"
+          class="w-full h-40 object-cover rounded-t-xl"
+        />
+        <div class="p-4">
+          <h5 class="text-lg font-bold text-teal-700 mb-2">
+            Vắc xin ComBE Five
+          </h5>
+          <p class="text-sm text-gray-600">
+            Vắc xin phối hợp 5 trong 1 phòng bạch hầu, ho gà, uốn ván, viêm gan
+            B và Hib.
+          </p>
+          <a
+            href="#"
+            class="inline-block mt-3 bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-400 transition"
+            >Chi tiết</a
+          >
+        </div>
+      </div>
+
+      <!-- 3. Infanrix Hexa -->
+      <div
+        class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-2 transition"
+      >
+        <img
+          src="../assets/img/imgVaccine/vaccine3.jpg"
+          class="w-full h-40 object-cover rounded-t-xl"
+        />
+        <div class="p-4">
+          <h5 class="text-lg font-bold text-teal-700 mb-2">Infanrix Hexa</h5>
+          <p class="text-sm text-gray-600">
+            Vắc xin 6 trong 1 của GSK phòng bạch hầu, ho gà, uốn ván, viêm gan
+            B, Hib và bại liệt.
+          </p>
+          <a
+            href="#"
+            class="inline-block mt-3 bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-400 transition"
+            >Chi tiết</a
+          >
+        </div>
+      </div>
+
+      <!-- 4. Hexaxim -->
+      <div
+        class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-2 transition"
+      >
+        <img
+          src="../assets/img/imgVaccine/vaccine4.jpg"
+          class="w-full h-40 object-cover rounded-t-xl"
+        />
+        <div class="p-4">
+          <h5 class="text-lg font-bold text-teal-700 mb-2">Hexaxim (Sanofi)</h5>
+          <p class="text-sm text-gray-600">
+            Vắc xin 6 trong 1 phòng bạch hầu, ho gà, uốn ván, Hib, viêm gan B và
+            bại liệt.
+          </p>
+          <a
+            href="#"
+            class="inline-block mt-3 bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-400 transition"
+            >Chi tiết</a
+          >
+        </div>
+      </div>
+
+      <!-- 5. Synflorix -->
+      <div
+        class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-2 transition"
+      >
+        <img
+          src="../assets/img/imgVaccine/Vắc xin Synflorix.jpg"
+          class="w-full h-40 object-cover rounded-t-xl"
+        />
+        <div class="p-4">
+          <h5 class="text-lg font-bold text-teal-700 mb-2">Synflorix</h5>
+          <p class="text-sm text-gray-600">
+            Vắc xin phòng phế cầu khuẩn (GSK), bảo vệ chống viêm phổi, viêm tai
+            giữa và nhiễm trùng huyết.
+          </p>
+          <a
+            href="#"
+            class="inline-block mt-3 bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-400 transition"
+            >Chi tiết</a
+          >
+        </div>
+      </div>
+
+      <!-- 6. Prevenar 13 -->
+      <div
+        class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-2 transition"
+      >
+        <img
+          src="../assets/img/imgVaccine/vaccine5.jpg"
+          class="w-full h-40 object-cover rounded-t-xl"
+        />
+        <div class="p-4">
+          <h5 class="text-lg font-bold text-teal-700 mb-2">Prevenar 13</h5>
+          <p class="text-sm text-gray-600">
+            Vắc xin phòng 13 chủng phế cầu khuẩn, phòng ngừa viêm phổi, viêm tai
+            và viêm màng não.
+          </p>
+          <a
+            href="#"
+            class="inline-block mt-3 bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-400 transition"
+            >Chi tiết</a
+          >
+        </div>
+      </div>
+
+      <!-- 7. MMR II -->
+      <div
+        class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-2 transition"
+      >
+        <img
+          src="../assets/img/imgVaccine/vaccine6.jpg"
+          class="w-full h-40 object-cover rounded-t-xl"
+        />
+        <div class="p-4">
+          <h5 class="text-lg font-bold text-teal-700 mb-2">MMR II</h5>
+          <p class="text-sm text-gray-600">
+            Vắc xin phòng sởi, quai bị, rubella của Merck, được sử dụng rộng rãi
+            toàn cầu.
+          </p>
+          <a
+            href="#"
+            class="inline-block mt-3 bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-400 transition"
+            >Chi tiết</a
+          >
+        </div>
+      </div>
+
+      <!-- 8. Varivax -->
+      <div
+        class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-2 transition"
+      >
+        <img
+          src="../assets/img/imgVaccine/vaccine7.jpg"
+          class="w-full h-40 object-cover rounded-t-xl"
+        />
+        <div class="p-4">
+          <h5 class="text-lg font-bold text-teal-700 mb-2">Varivax</h5>
+          <p class="text-sm text-gray-600">
+            Vắc xin phòng thủy đậu (Merck), giúp giảm nguy cơ biến chứng và lây
+            lan bệnh.
+          </p>
+          <a
+            href="#"
+            class="inline-block mt-3 bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-400 transition"
+            >Chi tiết</a
+          >
+        </div>
+      </div>
+
+      <!-- 9. Varilrix -->
+      <div
+        class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-2 transition"
+      >
+        <img
+          src="../assets/img/imgVaccine/vaccine8.jpg"
+          class="w-full h-40 object-cover rounded-t-xl"
+        />
+        <div class="p-4">
+          <h5 class="text-lg font-bold text-teal-700 mb-2">Varilrix</h5>
+          <p class="text-sm text-gray-600">
+            Vắc xin phòng thủy đậu của GSK, an toàn và hiệu quả cao cho trẻ em
+            và người lớn.
+          </p>
+          <a
+            href="#"
+            class="inline-block mt-3 bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-400 transition"
+            >Chi tiết</a
+          >
+        </div>
+      </div>
+
+      <!-- 10. Rotarix -->
+      <div
+        class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-2 transition"
+      >
+        <img
+          src="../assets/img/imgVaccine/vaccine9.jpg"
+          class="w-full h-40 object-cover rounded-t-xl"
+        />
+        <div class="p-4">
+          <h5 class="text-lg font-bold text-teal-700 mb-2">Rotarix</h5>
+          <p class="text-sm text-gray-600">
+            Vắc xin phòng tiêu chảy do Rotavirus (GSK), đường uống, hiệu quả cho
+            trẻ sơ sinh.
+          </p>
+          <a
+            href="#"
+            class="inline-block mt-3 bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-400 transition"
+            >Chi tiết</a
+          >
+        </div>
+      </div>
+
+      <!-- 11. Rotateq -->
+      <div
+        class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-2 transition"
+      >
+        <img
+          src="../assets/img/imgVaccine/vaccine10.webp"
+          class="w-full h-40 object-cover rounded-t-xl"
+        />
+        <div class="p-4">
+          <h5 class="text-lg font-bold text-teal-700 mb-2">Rotateq</h5>
+          <p class="text-sm text-gray-600">
+            Vắc xin đường uống phòng ngừa tiêu chảy do Rotavirus (Merck), dùng
+            cho trẻ nhỏ.
+          </p>
+          <a
+            href="#"
+            class="inline-block mt-3 bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-400 transition"
+            >Chi tiết</a
+          >
+        </div>
+      </div>
+
+      <!-- 12. Imojev -->
+      <div
+        class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-2 transition"
+      >
+        <img
+          src="../assets/img/imgVaccine/vaccine11.jpg"
+          class="w-full h-40 object-cover rounded-t-xl"
+        />
+        <div class="p-4">
+          <h5 class="text-lg font-bold text-teal-700 mb-2">Imojev</h5>
+          <p class="text-sm text-gray-600">
+            Vắc xin sống giảm độc lực phòng viêm não Nhật Bản, tiêm một liều duy
+            nhất từ 9 tháng tuổi.
+          </p>
+          <a
+            href="#"
+            class="inline-block mt-3 bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-400 transition"
+            >Chi tiết</a
+          >
+        </div>
+      </div>
+
+      <!-- 13. Jevax -->
+      <div
+        class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-2 transition"
+      >
+        <img
+          src="../assets/img/imgVaccine/vaccine12.jpg"
+          class="w-full h-40 object-cover rounded-t-xl"
+        />
+        <div class="p-4">
+          <h5 class="text-lg font-bold text-teal-700 mb-2">Jevax</h5>
+          <p class="text-sm text-gray-600">
+            Vắc xin viêm não Nhật Bản bất hoạt, được sử dụng lâu đời tại Việt
+            Nam cho trẻ từ 1 tuổi.
+          </p>
+          <a
+            href="#"
+            class="inline-block mt-3 bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-400 transition"
+            >Chi tiết</a
+          >
+        </div>
+      </div>
+
+      <!-- 14. Gardasil 9 -->
+      <div
+        class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-2 transition"
+      >
+        <img
+          src="../assets/img/imgVaccine/vaccine13.jpg"
+          class="w-full h-40 object-cover rounded-t-xl"
+        />
+        <div class="p-4">
+          <h5 class="text-lg font-bold text-teal-700 mb-2">Gardasil 9</h5>
+          <p class="text-sm text-gray-600">
+            Vắc xin HPV phòng ngừa ung thư cổ tử cung, sùi mào gà và các bệnh do
+            9 type HPV gây ra.
+          </p>
+          <a
+            href="#"
+            class="inline-block mt-3 bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-400 transition"
+            >Chi tiết</a
+          >
+        </div>
+      </div>
+
+      <!-- 15. Cervarix -->
+      <div
+        class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-2 transition"
+      >
+        <img
+          src="../assets/img/imgVaccine/vaccine14.webp"
+          class="w-full h-40 object-cover rounded-t-xl"
+        />
+        <div class="p-4">
+          <h5 class="text-lg font-bold text-teal-700 mb-2">Cervarix</h5>
+          <p class="text-sm text-gray-600">
+            Vắc xin HPV của GSK, tập trung vào phòng ngừa ung thư cổ tử cung do
+            HPV type 16 và 18.
+          </p>
+          <a
+            href="#"
+            class="inline-block mt-3 bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-400 transition"
+            >Chi tiết</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+</body>

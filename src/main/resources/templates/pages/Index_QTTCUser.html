@@ -1,0 +1,200 @@
+<style>
+  body {
+    font-family: "Segoe UI", sans-serif;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: auto;
+    padding: 50px 20px;
+  }
+
+  h1 {
+    font-weight: bold;
+    color: #0d6efd;
+    margin-bottom: 30px;
+    font-size: 35px;
+  }
+
+  .info-box {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    margin-bottom: 40px;
+  }
+
+  .info-box h4 {
+    color: #0d47a1;
+    margin-bottom: 20px;
+  }
+
+  .info-row {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  .info-label {
+    font-weight: 600;
+    color: #495057;
+  }
+
+  .info-value {
+    color: #333;
+  }
+
+  .timeline {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 32px;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: #cfd8dc;
+  }
+
+  .timeline .step {
+    position: relative;
+    margin-bottom: 40px;
+    padding-left: 80px;
+    padding-right: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    transition: 0.3s ease;
+  }
+
+  .timeline .step:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .timeline .step::before {
+    content: "\f111";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 20px;
+    top: 24px;
+    font-size: 16px;
+    color: #adb5bd;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 5px;
+  }
+
+  .timeline .step.completed::before {
+    content: "\f058";
+    color: #28a745;
+  }
+
+  .timeline .step h5 {
+    margin: 0;
+    padding-top: 20px;
+    font-weight: 600;
+    color: #0d47a1;
+    font-size: 1.2rem;
+  }
+
+  .timeline .step p {
+    margin: 8px 0 20px;
+    color: #607d8b;
+    font-size: 15px;
+  }
+</style>
+<body>
+  <div class="container text-center">
+    <h1>👶 Theo Dõi Tiến Độ Tiêm Chủng Của Bé</h1>
+
+    <!-- Thông tin bé -->
+    <div class="info-box text-start">
+      <h4>📄 Thông Tin Của Trẻ</h4>
+      <div class="row">
+        <div class="col-md-6 info-row">
+          <span class="info-label">Họ tên:</span>
+          <span class="info-value" id="tenBe">Đang tải...</span>
+        </div>
+        <div class="col-md-6 info-row">
+          <span class="info-label">Giới tính:</span>
+          <span class="info-value" id="gioiTinh">Đang tải...</span>
+        </div>
+        <div class="col-md-6 info-row">
+          <span class="info-label">Ngày sinh:</span>
+          <span class="info-value" id="ngaySinh">Đang tải...</span>
+        </div>
+        <div class="col-md-6 info-row">
+          <span class="info-label">Mã hồ sơ:</span>
+          <span class="info-value" id="maHoSo">Đang tải...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tiến độ -->
+    <ul class="timeline" id="progressList"></ul>
+  </div>
+
+  <script>
+    const progressSteps = [
+      {
+        title: "Đặt lịch tiêm chủng",
+        description: "Phụ huynh đã đặt lịch tiêm cho bé qua hệ thống.",
+      },
+      {
+        title: "Đến tiêm chủng tại cơ sở",
+        description: "Bé đã đến cơ sở tiêm chủng theo lịch hẹn.",
+      },
+      {
+        title: "Ghi nhận kết quả vào hồ sơ",
+        description:
+          "Kết quả tiêm được lưu trữ và cập nhật vào hồ sơ sức khỏe.",
+      },
+      {
+        title: "Thanh toán",
+        description: "Phụ huynh đã thanh toán chi phí tiêm chủng.",
+      },
+      {
+        title: "Đánh giá cơ sở tiêm chủng",
+        description: "Phụ huynh đã gửi đánh giá về chất lượng dịch vụ.",
+      },
+    ];
+
+    async function fetchBabyData() {
+      try {
+        const apiBaseUrl = `http://${window.location.hostname}:8080`;
+        const res = await fetch(`${apiBaseUrl}/api/baby/123`); // 👈 Đổi URL này sau
+        const data = await res.json();
+
+        document.getElementById("tenBe").textContent = data.hoTen;
+        document.getElementById("gioiTinh").textContent = data.gioiTinh;
+        document.getElementById("ngaySinh").textContent = data.ngaySinh;
+        document.getElementById("maHoSo").textContent = data.maHoSo;
+
+        renderProgress(data.tienDo || []);
+      } catch (err) {
+        alert("Không thể tải thông tin. Vui lòng kiểm tra kết nối.");
+        console.error(err);
+      }
+    }
+
+    function renderProgress(progressIndexes) {
+      const list = document.getElementById("progressList");
+      list.innerHTML = "";
+      progressSteps.forEach((step, i) => {
+        const li = document.createElement("li");
+        li.className =
+          "step" + (progressIndexes.includes(i) ? " completed" : "");
+        li.innerHTML = `<h5>${step.title}</h5><p>${step.description}</p>`;
+        list.appendChild(li);
+      });
+    }
+
+    fetchBabyData();
+  </script>
+</body>

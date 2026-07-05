@@ -1,0 +1,63 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.navbar {
+  padding: 15px 0;
+}
+
+.container {
+  max-width: 900px;
+}
+
+.banner h2 {
+  font-size: 28px;
+}
+
+.banner-image {
+  margin-top: 20px;
+}
+
+.banner-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-box {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.appointment-box input,
+.appointment-box select,
+.appointment-box textarea {
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* .btn-primary {
+  width: 100%;
+  border-radius: 8px;
+} */
+
+.banner {
+  max-width: 800px; /* Giới hạn chiều rộng banner */
+  background-color: #e3e3e3;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  border-radius: 12px; /* Bo tròn góc */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+}
+
+.banner-image img {
+  max-width: 100%; /* Đảm bảo ảnh không vượt quá khung */
+  height: auto;
+  border-radius: 10px; /* Bo góc mềm mại */
+}
+
+h2.fw-bold {
+  color: #000000 !important; /* Màu chữ theo yêu cầu */
+}

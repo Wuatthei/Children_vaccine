@@ -1,0 +1,20 @@
+.scroll-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+.scroll-menu a {
+    padding: 10px 20px;
+    display: inline-block;
+    color: #1d4ed8; /* Màu xanh */
+}
+.scroll-menu a:hover {
+    background-color: #e5e7eb; /* Màu xám nhạt khi hover */
+}
+#menu {
+    display: none;
+}
