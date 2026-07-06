@@ -7,9 +7,9 @@ services:
     container_name: children-vaccine-api
     restart: always
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://<RDS_ENDPOINT>:3306/vaccinemanagement?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
-      - SPRING_DATASOURCE_USERNAME=<RDS_USERNAME>
-      - SPRING_DATASOURCE_PASSWORD=<RDS_PASSWORD>
+      - SPRING_DATASOURCE_URL=jdbc:mysql://children-vaccine-db.c9uces6o6xju.ap-southeast-2.rds.amazonaws.com:3306/vaccinemanagement?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=Peirrwyqpwt55
     networks:
       - children-vaccine-net
 
